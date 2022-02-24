@@ -20,7 +20,7 @@
         <div class="description">
           <h2>{{ item.name }}</h2>
           <p>{{ item.description }}</p>
-          <span>¥<span class="price">{{ item.price }}</span></span>
+          <span>¥<span class="price">{{ pricePrefix(item.price) }}</span></span>
         </div>
       </div>
     </template>
@@ -70,6 +70,15 @@ export default {
           soldOut: false
         }
       ]
+    }
+  },
+  methods: {
+    /**
+     * 価格を3桁ごとのカンマ付きで返す
+     * @param {number} price 価格
+     */
+    pricePrefix(price) {
+      return price.toLocaleString()
     }
   }
 }
